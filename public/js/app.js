@@ -12,18 +12,31 @@
         currentRoom: undefined,
         currentChannel: undefined,
         subscribedChannels: [],
-        subscribedUser: []
+        subscribedUsers: []
     }
 
-    var publicChannel = pusher.subscribe('update')
+    var publicChannel = pusher.subscribe('update');
 
     const chatBody = $(document)
-    const chatRoomList = $('#rooms')
+    const chatRoomsList = $('#rooms')
     const chatReplyMessage = $('#replyMessage')
 
     const helpers = {
         clearChatMessages: () => {
-            $('chat-msgs').html('')
+            $('#chat-msgs').html('')
+        },
+
+        displayChatMessage: (message) => {
+            if (message.email === chat.email) {
+                $('#chat-msgs').prepend(
+                    `<tr>
+                        <td>
+                            <div class="sender">${message.sender} @ <span class="date">${message.createdAt}</span></div>
+                            <div class="message">${message.text}</div>
+                        </td>
+                    </tr>`
+                )
+            }
         },
     }
 })();
