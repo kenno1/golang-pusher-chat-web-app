@@ -1,7 +1,7 @@
 (function () {
-    var pusher = new Pusher('e03fa0186b8899f1d8f1', {
+    var pusher = new Pusher('***********', {
         authEndpoint: '/pusher/auth',
-        cluster: 'ap3',
+        cluster: '***********',
         encrypted: true
     });
 
