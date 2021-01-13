@@ -38,5 +38,18 @@
                 )
             }
         },
+
+        loadChatRoom: evt => {
+            chat.currentRoom = evt.target.dataset.roomId
+            chat.currentChannel = evt.target.dataset.channelId
+            chat.endUserName =  evt.target.dataset.userName
+            if (chat.currentRoom !== undefined) {
+                $('.response').show()
+                $('#room-title').text('Write a message to ' + evt.target.dataset.userName+ '.')
+            }
+
+            evt.preventDefault()
+            helpers.clearChatMessages()
+        },
     }
 })();
